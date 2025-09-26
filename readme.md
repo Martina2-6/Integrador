@@ -1,7 +1,7 @@
 # Integrador
 ADA-modulo2
 🚀 Integrador, Portafolio
-Este es el modulo 2 de el curso de FrontEnd de ADA. El Integrador esta incluido que es un Portafolio,en donde muestro mis habilidades aprendidas en el curso
+ Portafolio,en donde muestro mis habilidades aprendidas en el curso
 
 📋 Características
 
@@ -15,4 +15,3 @@ CSS3
 JavaScript
 
 📂 Instalación / Uso
-1.https://github.com/Martina2-6/ADA-modulo2.git
