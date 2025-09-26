@@ -1,0 +1,374 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6;
+  background: #f5ceff;
+  color: #000000;
+
+}/* Colores base (modo claro por defecto) */
+:root {
+  --bg-color: #fbe3ff;
+  --text-color: #000000;
+}
+
+/* Modo oscuro */
+.dark-mode {
+  --bg-color: #1b002b;
+  --text-color: #ffffff;
+}
+
+/*variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: rgb(138, 0, 177) 2px solid;
+  background: #e19aff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  background: #9100cf;
+  color: white;
+  border: rgb(208, 110, 235) 2px solid;
+}
+/* Sección presentación */
+.presentacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* espacio entre foto y texto */
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #ffffff, #d574ff);
+}
+
+.presentacion .perfil img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #9600c8;
+  box-shadow: 0 6px 20px rgba(92, 50, 120, 0.15);
+  transition: transform 0.3s ease;
+}
+.presentacion .perfil img:hover {
+  transform: scale(1.05);
+}
+
+.presentacion .texto {
+  max-width: 500px;
+  
+}
+.presentacion h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+.presentacion h1 span {
+  color:#ff6fdb; /* resaltar mi nombre */
+}
+.presentacion p {
+  font-size: 1.1rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Botón */
+.presentacion .btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: #7c00b1;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.presentacion .btn:hover {
+  background: #430060;
+  transform: translateY(-2px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .presentacion {
+    flex-direction: column;
+    text-align: center;
+  }
+  .presentacion .perfil img {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Header */
+header {
+  background-color: #d574ff;
+  padding: 10px 20px;
+  position: sticky; /* que quede fijo arriba */
+  top: 0;
+  z-index: 1000;
+  
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+header nav ul li a {
+  color: #dc72ff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  
+}
+
+/* Secciones */
+section {
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+
+}
+h1 {
+  font-size: 76px;
+  color: #8d00e4;
+  font-family: 'Georgia', serif;
+}
+h2 {
+  font-size: 48px;
+  color: #8d00e4;
+  font-family: 'Georgia', serif;
+}
+
+h4 {
+  text-align: center;
+  color: #ff8ce0;
+  font-size: 14px;
+  margin-top: 50px;
+}
+#habilidades h2 {
+  font-family: 'Georgia', serif;
+  font-size: 48px;
+  color: #8d00e4;
+}
+
+
+/* Cita */
+.cita {
+  background: #ffb7e8;
+  text-align: center;
+  font-style: italic;
+  padding: 50px;
+  font-size:large;
+}
+
+/* Proyectos */
+/* contenedor de la imagen */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* bordes redondeados */
+}
+
+/* la imagen */
+.img-container img {
+  width: 30%;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+/* el overlay */
+.img-container .overlay {
+  position: absolute;
+  inset: 0; /* equivale a top:0; right:0; bottom:0; left:0 */
+  background: rgba(50, 170, 255, 0.216); /* color negro semitransparente */
+  color: #ff46cb;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;               /* oculto por defecto */
+  transition: opacity 0.4s ease;
+}
+
+/* efecto al pasar el mouse */
+.img-container:hover img {
+  transform: scale(1.08);   /* zoom suave en la imagen */
+}
+.img-container:hover .overlay {
+  opacity: 1;               /* aparece el overlay */
+}
+
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form input, form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+form button {
+  background: #63317f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-color: #ff83f7;
+}
+form button:hover {
+  background: #e57bff;
+  color: #000000;
+  border-color: #42005f;
+}
+
+/* Footer */
+footer {
+ background: linear-gradient(135deg, #89ccff, #b301ff);
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  
+}
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  margin-bottom: 10px;
+}
+footer a {
+  color: #4f0069;
+  text-decoration: none;
+}
+footer a:hover {
+  color: rgb(255, 255, 255);
+}
+/* Presentación */
+.presentacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 20px;
+  flex-wrap: wrap; /* Para que se acomode en mobile */
+}
+
+.presentacion .perfil img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Foto circular */
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(204, 0, 255, 0.2);
+  border: 3px solid rgb(248, 244, 249);
+}
+
+.presentacion .texto {
+  max-width: 600px;
+}
+
+.presentacion .texto h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.presentacion .texto p {
+  font-size: 18px;
+  color: #000000;
+}
+/* Header */
+header {
+  background: #42005f;
+  padding: 10px 20px;
+  position: sticky; /* para q quede fijo arriba */
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Foto circular */
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+.compañero {
+  position: fixed;
+  bottom: 20px;  /* siempre visible abajo */
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  pointer-events: none; /* no bloquea clics */
+  z-index: 9999;
+}
+
+.compañero img {
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+.compañero {
+  animation: saltito 1s infinite ease-in-out;
+}
+@keyframes saltito {
+  0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
