@@ -1,41 +1,39 @@
+
+/* Variables modo claro por defecto */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #f7f7f7;
+  --header-bg: #42005f;
+  --link-color: #ffffff;
+  --footer-bg: linear-gradient(135deg, #89ccff, #b301ff);
+}
+
+/* Variables en modo oscuro */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --header-bg: #1f0030;
+  --link-color: #ff6ad7;
+  --footer-bg: linear-gradient(135deg, #2c2c2c, #000000);
+}
+
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.6;
-  background: #f5ceff;
-  color: #000000;
-
-}/* Colores base (modo claro por defecto) */
-:root {
-  --bg-color: #fbe3ff;
-  --text-color: #000000;
-}
-
-/* Modo oscuro */
-.dark-mode {
-  --bg-color: #1b002b;
-  --text-color: #ffffff;
-}
-
-/*variables */
+/* Base */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: sans-serif;
   transition: background-color 0.3s, color 0.3s;
-  margin: 0;
-  padding: 0;
   line-height: 1.6;
-}
-
+  padding-top: 70px; /* para que el fixed header no tape contenido */
 button {
   padding: 0.5rem 1rem;
   border: rgb(138, 0, 177) 2px solid;
@@ -47,6 +45,11 @@ button:hover {
   background: #9100cf;
   color: white;
   border: rgb(208, 110, 235) 2px solid;
+}
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
 }
 /* Sección presentación */
 .presentacion {
@@ -121,10 +124,17 @@ button:hover {
 header {
   background-color: #d574ff;
   padding: 10px 20px;
-  position: sticky; /* que quede fijo arriba */
-  top: 0;
   z-index: 1000;
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* para que quede arriba*/
+  box-shadow: 0 2px 5px rgb(179, 0, 255);
+}
+
+body {
+  padding-top: 70px; /* mismo alto que tu header, así el contenido no se oculta */
 }
 header nav ul {
   display: flex;
@@ -165,7 +175,7 @@ h2 {
 h4 {
   text-align: center;
   color: #ff8ce0;
-  font-size: 14px;
+  font-size: 24px;
   margin-top: 50px;
 }
 #habilidades h2 {
@@ -173,11 +183,26 @@ h4 {
   font-size: 48px;
   color: #8d00e4;
 }
+.habilidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  box-shadow: 0 2px 6px rgba(194, 82, 255, 0.668);
+  text-align: center;
+  font-weight: bold;
+}
 
 
 /* Cita */
 .cita {
-  background: #ffb7e8;
+  background: #ff64ce;
   text-align: center;
   font-style: italic;
   padding: 50px;
@@ -256,8 +281,9 @@ footer {
   padding: 20px;
   text-align: center;
   margin-top: 40px;
-  
 }
+
+
 footer nav ul {
   display: flex;
   justify-content: center;
